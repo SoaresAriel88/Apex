@@ -1,0 +1,62 @@
+```public class Car {
+        
+    //attributes
+    
+    public Integer numAcentos;
+    public Map<String, Person> mapPersonByLocation = new Map<String, Person>();
+    
+    //constructors
+    
+    public Car(Integer numAcentos) {
+        this.numAcentos = numAcentos;
+    }
+    
+    //methods
+    
+    public void addPersonInCar(String location, Person person) {
+        Boolean verifyCarCapacity = this.numAcentos == this.mapPersonByLocation.size(); 
+        Boolean verifySubstituePerson = this.mapPersonByLocation.containsKey(location);
+        
+        if(verifyCarCapacity && !verifySubstituePerson) {
+            System.debug('Olha meu fi, o carro tá cheio vai catar coquinho '+person.name);
+            return;
+        }
+        
+        if(verifySubstituePerson) {
+            Person oldPerson = this.mapPersonByLocation.get(location);
+            
+            System.debug('Vish '+oldPerson.name+' o '+person.name+' vai sentar no teu lugar ó, sai da cabeça de ovo.');
+        } else {
+            System.debug('Sentou bonitin '+person.name);
+        }
+        
+        this.mapPersonByLocation.put(location, person);
+    }
+    
+    public void whereIsPersonInLocation(String location) {
+        Boolean verifyIfHasPersonInLocation = this.mapPersonByLocation.containsKey(location);
+        
+        if(!verifyIfHasPersonInLocation) {
+            System.debug('Não tem ninguém ai, ou esse acento não existe.');
+            return;
+        }
+        
+        Person person = this.mapPersonByLocation.get(location);
+        
+        System.debug('Quem está no '+location+' é o '+person.name);
+    }
+    
+    //subClasses
+    
+    public class Person {
+        public String name;
+        public Integer age;
+        
+        //constructors
+        
+        public Person(String name, Integer age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+}```
