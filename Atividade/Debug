@@ -1,0 +1,12 @@
+Estacione est = new Estacione();
+
+Estacione.Car myCar = new Estacione.Car('fox');
+
+System.debug(myCar);
+
+est.addEstacione('Vaga1', myCar);
+est.addEstacione('Vaga1', new Estacione.Car('t-cross'));
+
+System.debug(est);
+
+est.getCar('Vaga1');
