@@ -1,0 +1,64 @@
+<template>
+    <lightning-card title="Registro Aluno" icon-name="standard:account">
+        
+        <lightning-record-edit-form object-api-name="Study__c">
+            
+            <lightning-messages></lightning-messages>
+            
+            <lightning-input-field field-name="Name" required></lightning-input-field>
+            <lightning-input-field field-name="Curso__c"></lightning-input-field>
+            <lightning-input-field field-name="Status__c"></lightning-input-field>
+            <lightning-button 
+                label="Save" 
+                variant="brand" 
+                type="submit"  
+                onclick={showSuccessToast}></lightning-button>
+        
+        </lightning-record-edit-form>
+    </lightning-card>
+        
+        
+    
+    <lightning-card title="Registro Curso" icon-name="standard:account">
+        <lightning-record-edit-form object-api-name="Course__c" title="Registro Curso">
+            <lightning-messages></lightning-messages>
+            <lightning-input-field field-name="Name" required></lightning-input-field>
+            <lightning-input-field field-name="Professor__c"></lightning-input-field>
+            <lightning-button 
+                label="Save" 
+                variant="brand" 
+                type="submit"  
+                onclick={showSuccessToast}></lightning-button>
+        
+        </lightning-record-edit-form>
+    </lightning-card>
+            
+            
+    <lightning-card title="Registro Modulo" icon-name="standard:account">
+        <lightning-record-edit-form object-api-name="Module__c" title="Adicionando Modulo">
+            <lightning-messages></lightning-messages>
+            <lightning-input-field field-name="Name" required></lightning-input-field>
+            <lightning-input-field field-name="Curso__c"></lightning-input-field>
+            <lightning-button 
+                label="Save" 
+                variant="brand" 
+                type="submit"  
+                onclick={showSuccessToast}></lightning-button>
+        
+        </lightning-record-edit-form>
+    </lightning-card>
+    
+     <lightning-card title="Registro Professor" icon-name="standard:account">
+        <lightning-record-edit-form object-api-name="Teacher__c" title="Adicionando Modulo">
+            <lightning-messages></lightning-messages>
+            <lightning-input-field field-name="Name" required></lightning-input-field>
+            <lightning-button 
+                label="Save" 
+                variant="brand" 
+                type="submit"  
+                onclick={showSuccessToast}></lightning-button>
+        
+        </lightning-record-edit-form>
+    </lightning-card>    
+
+</template>
