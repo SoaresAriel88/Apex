@@ -1,0 +1,27 @@
+<template>
+    <lightning-card>
+        <lightning-combobox
+            name="Search Study and Discipline"
+            label="Study/Discipline"
+            value={searchAlunosAndCursos}
+            placeholder="Select Progress"
+            options={optionsAlunosAndCursos}
+            onchange={handleChangeAlunosAndCursos}></lightning-combobox>
+        </lightning-card>
+
+        <template if:true={searchAlunosAndCursos}>
+            <lightning-tabset>
+                <lightning-tab label="Item One">
+                    One Content !
+                </lightning-tab>
+                <lightning-tab label="Item Two" title="2nd tab extended title">
+                    Two Content !
+                </lightning-tab>
+                <lightning-tab label="Item Three">
+                    Three Content !
+                </lightning-tab>
+            </lightning-tabset>
+        
+        
+        </template>
+</template>
