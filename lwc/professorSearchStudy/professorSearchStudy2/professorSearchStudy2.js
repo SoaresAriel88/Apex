@@ -40,25 +40,16 @@ handleChangeAlunosAndCursos(event) {
 
     }
 
-handleChangeMinistradosDoTeacher(event) {
-        this.searchTeacherMinistrado = event.detail.value;
-        this.showStudies= true;
-        console.log("Lista dos IDs de Curso", this.searchTeacherMinistrado);
+    @wire(searchStudyName, {courseId: "$searchTeacherNameId"})
+    wiredStudies({data, error}){
+        console.log('Lista dos Alunos Retornados: ' + JSON.stringify(data));
+        if(data){
+            this.searchStudy = data.map( study => ({ label:study.Name, value:study.Id}));
+            
+        }else if(error){
+            console.log(error);
 
-         searchStudyName({courseId: this.searchTeacherMinistrado}).then(data => {
-            if(data){
-                console.log('Alunos retornados: ', JSON.stringify(data))
-              //É COMO SE FOSSE O COMPONENTE DA CHAMADA WIRE  
-                this.searchStudy = data;
-
-                console.log('course Options: ', this.searchStudy);
-            }
-		})
-		.catch(error => {
-			console.error(error);
-		})
-    
-    
+        }
     }
 
 
