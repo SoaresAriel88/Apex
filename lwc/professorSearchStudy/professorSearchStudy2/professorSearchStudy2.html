@@ -1,37 +1,37 @@
 <template>
     <lightning-card>
         <div class="slds-p-around_medium">
+           
             <lightning-combobox 
                 name="teacherName" 
                 label="Select a Teacher" 
                 value={searchTeacherNameId} 
                 options={teacherNameOptions}
-                onchange={handleChangeAlunosAndCursos}></lightning-combobox>
+                onchange={handleChangeAlunosAndCursos}>
+            </lightning-combobox>
         </div>
 
         
-        <template if:true={showTable}> 
-            <lightning-combobox 
-                name="courseName" 
-                label="Select a Course" 
-                value={searchTeacherNameId} 
-                options={coursesNameOptions}
-                onchange={handleChangeMinistradosDoTeacher}></lightning-combobox>
+        
             
-            <template if:true={showStudies}>
-               <lightning-datatable
-                    key-field="Id"
-                    data={searchStudy}
-                    columns={columns}>
-                </lightning-datatable>
             
+            <template if:true={showTable}>
+                <lightning-tabset>
+                    
+                    <lightning-tab label="Alunos">
+                        <template for:each={searchStudy} for:item="aluno">
+                            <p key={aluno.value}>{aluno.label}</p>
+                        </template>
+                    </lightning-tab>
+
+                
+                    <lightning-tab label="Cursos">
+                        <template for:each={coursesNameOptions} for:item="curso">
+                            <p key={curso.value}>{curso.label}</p>
+                        </template>
+                    </lightning-tab>
+                </lightning-tabset>
             </template>
-            </template>
-    
-    
-    
-    
-    
-    
+        
     </lightning-card>
 </template>
