@@ -6,6 +6,11 @@ export default class RegisterStudent extends LightningElement {
 
 consultaCepOptions;   
 @track consulta;
+@track endereco;
+@track bairro;
+@track cidade;
+@track uf;
+
 
 async handleChangeCEP(event){
     this.consultaCepOptions = event.detail.value;
@@ -14,7 +19,11 @@ async handleChangeCEP(event){
                 if(data){
                     console.log('CEPS RETORNADOS: ', data)
                     this.consulta = data;
-                    consulta = this.consulta;
+                    this.logradouro = data.logradouro;
+                    this.bairro = data.bairro;
+                    this.localidade = data.localidade;
+                    this.uf = data.uf
+                    
                     console.log('ENDEREÇO RETORNADO: ', JSON.stringify(this.consulta));
                 }
             })
