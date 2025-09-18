@@ -1,19 +1,18 @@
 <template>
     <lightning-card title="Registro Aluno" icon-name="standard:account">
-        
+       
         <lightning-record-edit-form object-api-name="Study__c">
             
             <lightning-messages></lightning-messages>
-            
             <lightning-input-field field-name="Name" required></lightning-input-field>
             <lightning-input-field field-name="Curso__c"></lightning-input-field>
             <lightning-input-field field-name="Status__c"></lightning-input-field>
-            <lightning-input label="CEP" required onchange={handleChangeCEP}></lightning-input>
-            <lightning-input label="Endereço" required></lightning-input>
+            <lightning-input label="CEP" required onchange={handleChangeCEP} onfocus={handleChangeCEP}></lightning-input>
+            <lightning-input label="Endereço" value={consulta} required></lightning-input>
             <lightning-input label="Complemento" required></lightning-input>
-            <lightning-input label="Bairro" required></lightning-input>
-            <lightning-input label="Cidade" required></lightning-input>
-            <lightning-input label="UF" required></lightning-input>
+            <lightning-input label="Bairro" value={bairro} required></lightning-input>
+            <lightning-input label="Cidade" value={localidade} required></lightning-input>
+            <lightning-input label="UF" value={uf} required></lightning-input>
             
          
 
