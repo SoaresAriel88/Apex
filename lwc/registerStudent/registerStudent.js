@@ -10,18 +10,17 @@ consultaCepOptions;
 async handleChangeCEP(event){
     this.consultaCepOptions = event.detail.value;
 
-    await cepConsultation({ cep: this.consultaCepOptions })
-		.then(study => {
-			this.consulta = study;
-            console.log("CEPS RETORNADOS: " + consulta);
-			
-		
-        })
-		
-        .catch(error => {
-			this.error = error;
-			this.accounts = undefined;
-		})
+    await cepConsultation({cep: this.consultaCepOptions}).then(data => {
+                if(data){
+                    console.log('CEPS RETORNADOS: ', data)
+                    this.consulta = data;
+                    consulta = this.consulta;
+                    console.log('ENDEREÇO RETORNADO: ', JSON.stringify(this.consulta));
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            })
 }
 
 
